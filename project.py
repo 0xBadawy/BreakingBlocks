@@ -1,7 +1,7 @@
 from collections import deque
 import copy
 import random
-sz=8
+sz=10
 check = [[False] * sz for _ in range(sz)]
 newcur = []
 cur = []
@@ -53,6 +53,17 @@ def fall():
                     # Check if k is within the valid range
                     if k < sz:
                         newcur[k] = ''.join(newcur[k])
+    
+    for i in range(sz-1):
+        if newcur[sz-1][i] == '.' and newcur[sz-1][i + 1] != '.':
+            k = i
+            while k > -1 and newcur[sz-1][k] == '.':
+                for j in range(sz):
+                    newcur[j] = list(newcur[j])
+                    newcur[j][k] = newcur[j][k + 1]
+                    newcur[j][k + 1] = '.'
+                    newcur[j] = ''.join(newcur[j])
+                k -= 1
 
 
 # Input for 'start'
