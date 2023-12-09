@@ -157,11 +157,11 @@ while True:
         for i in range(sz):
             for j in range(sz):
                 if(temp[i][j]=='b'):
-                    screen.blit(Yallow, ( 465+(i*space)  ,  60 +(j*space)   )  )
+                    screen.blit(Yallow, ( 465+(j*space)  ,  60 +(i*space)   )  )
                 if(temp[i][j]=='r'):
-                    screen.blit(Red, ( 465+(i*space)  ,  60 +(j*space)    )    )
+                    screen.blit(Red,    ( 465+(j*space)  ,  60 +(i*space)    ) )
                 if(temp[i][j]=='.'):
-                    screen.blit(White, ( 465+(i*space)  ,  60 +(j*space)    )    )  
+                    screen.blit(White,  ( 465+(j*space)  ,  60 +(i*space)    ) )  
         pygame.display.update()
         clock.tick(0.3)
     break
