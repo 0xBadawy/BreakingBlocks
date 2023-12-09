@@ -17,7 +17,6 @@ def print_list(v):
         print(' ')
     print("-------------------------------------")
 
-
 def finish():
     for j in range(sz):
         if cur[sz-1][j] != '.':
