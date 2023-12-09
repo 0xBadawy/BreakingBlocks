@@ -1,7 +1,14 @@
 from collections import deque
+from sys import exit
 import copy
 import random
+import pygame
+
+
+
 sz=10
+
+#'''
 check = [[False] * sz for _ in range(sz)]
 newcur = []
 cur = []
@@ -66,11 +73,7 @@ def fall():
                 k -= 1
 
 
-# Input for 'start'
-'''
-for i in range(8):
-    start[i] = input()
-'''
+
 for i in range(sz):
     for j in range(sz):
         p=random.randint(1,2) % 2
@@ -113,3 +116,52 @@ ans.reverse()
 for i in range(len(ans)):
     print_list(ans[i])
 
+'''
+Temp_arr=['rrr.......',
+          'bbb......r',
+          'brbb..b..b',
+          'bbrbb.b..b',
+          'bbbbbbbb.b',
+          'rrbbbbbbbb',
+          'rrbrrrbbbb',
+          'rbbbrrrbrb',
+          'rbrrrbbrbr',
+          'bbrrbrbrbr']
+'''
+
+############################################################################################
+############################################################################################
+
+''''''
+
+ccc=0
+pygame.init()
+screen = pygame.display.set_mode((1200,750))
+pygame.display.set_caption('8 puzzle')
+clock =pygame.time.Clock()
+
+Red = pygame.image.load('Image/red.png').convert_alpha()
+White = pygame.image.load('Image/white.png').convert_alpha()
+Yallow = pygame.image.load('Image/Yallow.png').convert_alpha()
+Background = pygame.image.load('Image/background.png')
+
+print(len(ans))
+while True:
+    for u in range(len(ans)):
+        screen.blit(Background,(0,0))
+        temp=ans[u]
+      #  print_list(temp)
+        print(u)
+        print("   ********** *******")
+        space=63
+        for i in range(sz):
+            for j in range(sz):
+                if(temp[i][j]=='b'):
+                    screen.blit(Yallow, ( 465+(i*space)  ,  60 +(j*space)   )  )
+                if(temp[i][j]=='r'):
+                    screen.blit(Red, ( 465+(i*space)  ,  60 +(j*space)    )    )
+                if(temp[i][j]=='.'):
+                    screen.blit(White, ( 465+(i*space)  ,  60 +(j*space)    )    )  
+        pygame.display.update()
+        clock.tick(0.3)
+    break
