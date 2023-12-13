@@ -3,6 +3,8 @@ from sys import exit
 import copy
 import random
 import pygame
+import sys
+
 
 sz=10
 
@@ -158,3 +160,5 @@ while True:
         pygame.display.update()
         clock.tick(0.9)
     break
+pygame.quit()
+sys.exit()
