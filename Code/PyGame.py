@@ -135,12 +135,12 @@ pygame.init()
 screen = pygame.display.set_mode((1200,750))
 pygame.display.set_caption('8 puzzle')
 clock =pygame.time.Clock()
+#Background = pygame.image.load('Image/background_n.png')
 
-Red = pygame.image.load('Image/red.png').convert_alpha()
-Background = pygame.image.load('Image/background.png')
-Yellow = pygame.image.load('Image/Yellow.png').convert_alpha()
-Background = pygame.image.load('Image/background.png')
-White = pygame.image.load('Image/white.png').convert_alpha()
+Red = pygame.image.load('Image/red_n1.png').convert_alpha()
+Background = pygame.image.load('Image/background_n.png')
+Yellow = pygame.image.load('Image/Yellow_n1.png').convert_alpha()
+White = pygame.image.load('Image/trans_n.png').convert_alpha()
 
 while True:
     for u in range(len(ans)):
@@ -158,7 +158,8 @@ while True:
                 if(temp[i][j]=='.'):
                     screen.blit(White,  ( 465+(j*space)  ,  60 +(i*space)    ) )  
         pygame.display.update()
-        clock.tick(0.9)
-    break
+        pygame.time.delay(1200)
+       # clock.tick(30)
+    break 
 pygame.quit()
 sys.exit()
