@@ -7,7 +7,6 @@ import sys
 
 
 sz=10
-
 check = [[False] * sz for _ in range(sz)]
 newcur = []
 cur = []
@@ -137,9 +136,9 @@ pygame.display.set_caption('8 puzzle')
 clock =pygame.time.Clock()
 #Background = pygame.image.load('Image/background_n.png')
 
-Red = pygame.image.load('Image/red_n1.png').convert_alpha()
-Background = pygame.image.load('Image/background_n.png')
-Yellow = pygame.image.load('Image/Yellow_n1.png').convert_alpha()
+Red = pygame.image.load('Image/red.png').convert_alpha()
+Background = pygame.image.load('Image/background_N.png')
+Yellow = pygame.image.load('Image/Yellow.png').convert_alpha()
 White = pygame.image.load('Image/trans_n.png').convert_alpha()
 
 while True:
@@ -147,7 +146,7 @@ while True:
         screen.blit(Background,(0,0))
         temp=ans[u]
         print(u)
-        print("   ********** *******")
+        print("******** ********")
         space=63
         for i in range(sz):
             for j in range(sz):
