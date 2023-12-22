@@ -112,8 +112,7 @@ def a_star():
         a += 2
 
     ans.pop()
-    for i in ans:
-        print_list(i)
+    return ans
 
 def bfs():
     sz=10
@@ -164,8 +163,7 @@ def bfs():
         ans.append(nw)
         a += 2
     ans.pop()
-    for i in ans:
-        print_list(i)
+    return ans
 
 def depth_limit_search():
     limit=5
@@ -219,8 +217,7 @@ def depth_limit_search():
         ans.append(nw)
         a += 2
     ans.pop()
-    for i in ans:
-        print_list(i)
+    return ans
 
 def dfs():
     mp = {}
@@ -266,8 +263,7 @@ def dfs():
         ans.append(nw)
         a += 2
     ans.pop()
-    for i in ans:
-        print_list(i)
+    return ans
 
 def greedy_best_first_search():
     mp = {}
@@ -314,8 +310,7 @@ def greedy_best_first_search():
         ans.append(nw)
         a += 2
     ans.pop()
-    for i in ans:
-        print_list(i)
+    return ans
 
 def itirative_depth_limit_search():
     b=0
@@ -367,8 +362,7 @@ def itirative_depth_limit_search():
         ans.append(nw)
         a += 2
     ans.pop()
-    for i in ans:
-        print_list(i)
+    return ans
 
 def uniform_cost_search():
     mp = {}
@@ -416,8 +410,7 @@ def uniform_cost_search():
         ans.append(nw)
         a += 2
     ans.pop()
-    for i in ans:
-        print_list(i)
+    return ans
 
 
 
