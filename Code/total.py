@@ -10,7 +10,7 @@ cc = [1, -1, 0, 0]
 pth = []
 cur = []
 newcur = []
-start = [[0] * sz for _ in range(sz)]
+#start = [[0] * sz for _ in range(sz)]
 #----------------------------------------------------------
 def heuristic_function(v):
     blue=0
@@ -66,11 +66,9 @@ def fall2(v):
                     v[j][k + 1] = 0
                 k -= 1
 #------------------------------------------------------------------------
-def a_star():
+def a_star(start):
     mp = {}
-    for i in range(sz):
-        for j in range(sz):
-            start[i][j]=random.randint(1,2)
+    
 
     # Using heapq for the priority queue
     q = [(heuristic_function(start), (start, []))]

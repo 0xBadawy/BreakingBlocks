@@ -5,7 +5,11 @@ import time
 import random
 import copy
 import heapq
+import math
+import sys
+
 from collections import deque
+from decimal import Decimal, getcontext
 pygame.init()
 
 
@@ -13,6 +17,17 @@ pygame.init()
 ###############################################################################
 ###############################################################################
 ###############################################################################
+
+
+
+def print_list(v):
+    for u in v:             
+         for i in range(sz):
+            for j in range(sz):
+               print(u[i][j], end='')
+            print(' ')
+         print("-------------------------------------")
+
 
 #-----------------------------------------------------------
 sz = 10
@@ -23,7 +38,14 @@ pth = []
 cur = []
 newcur = []
 start = [[0] * sz for _ in range(sz)]
+
 elapsed_time_m=0
+lengthof_selution=0
+total_state=0
+complet="NO"
+optemal="YES"
+Ospace=10
+
 ansA = []
 
 #----------------------------------------------------------
@@ -37,13 +59,6 @@ def heuristic_function(v):
             elif v[i][j]==2:
                 blue=1
     return red+blue
-
-def print_list(v):
-    for i in range(sz):
-        for j in range(sz):
-            print(v[i][j], end='')
-        print(' ')
-    print("-------------------------------------")
 
 def finish(v):
     for j in range(sz):
@@ -90,6 +105,7 @@ sz=10
 number_of_red = 0
 number_of_blue = 0
 TimeE=10
+
 runT1=1
 
 start = [[0] * sz for _ in range(sz)]
@@ -97,16 +113,6 @@ start = [[0] * sz for _ in range(sz)]
 Red = pygame.image.load('Image/red.png') 
 Yellow = pygame.image.load('Image/Yellow.png')
 White = pygame.image.load('Image/trans_n.png') 
-
-
-def print_list(v):
-    for u in range(len(v)):
-         temp=v[u]        
-         for i in range(sz):
-            for j in range(sz):
-               print(temp[i][j], end='')
-            print(' ')
-         print("-------------------------------------")
 
 
 def display():
@@ -124,19 +130,39 @@ def display():
 
 def display_Algo():
    for u in range(len(ansA)):
-        temp=ansA[u]
-        
-        space=63
-        for i in range(sz):
-            for j in range(sz):
-                  if(temp[i][j]==1):
-                     screen.blit(Yellow, ( 520+(j*space)  ,  70 +(i*space)   )  )
-                  if(temp[i][j]==2):
-                     screen.blit(Red,    ( 520+(j*space)  ,  70 +(i*space)    ) )
-                  if(temp[i][j]==0):
-                     screen.blit(White,  ( 520+(j*space)  ,  70 +(i*space)    ) ) 
-      #  pygame.display.update()
-      #  pygame.time.delay(1200)
+      screen.blit(Background_game,(0,0))
+      temp=ansA[u]
+      
+      space=63
+      for i in range(sz):
+         for j in range(sz):
+               if(temp[i][j]==1):
+                  screen.blit(Yellow, ( 500+(j*space)  ,  65 +(i*space)   )  )
+               if(temp[i][j]==2):
+                  screen.blit(Red,    ( 500+(j*space)  ,  65 +(i*space)    ) )
+               if(temp[i][j]==0):
+                  screen.blit(White,  ( 500+(j*space)  ,  65 +(i*space)    ) )
+
+      text_DFS_Time=Font_Main.render(str(elapsed_time_m)+" ms",False,'White')
+      screen.blit(text_DFS_Time,(180,550)) 
+
+      text_DFS_Time=Font_Main.render(str(Ospace)+" ",False,'White')
+      screen.blit(text_DFS_Time,(180,590)) 
+
+      text_DFS_Time=Font_Main.render(str(optemal)+" ",False,'White')
+      screen.blit(text_DFS_Time,(250,497)) 
+
+      text_DFS_Time=Font_Main.render(str(complet)+" ",False,'White')
+      screen.blit(text_DFS_Time,(270,450)) 
+
+      text_DFS_Time=Font_Main.render(str(total_state)+" ",False,'White')
+      screen.blit(text_DFS_Time,(315,400)) 
+
+      text_DFS_Time=Font_Main.render(str(lengthof_selution)+" ",False,'White')
+      screen.blit(text_DFS_Time,(265,355)) 
+
+      pygame.display.update()
+      pygame.time.delay(1200)
 
 
 
@@ -160,7 +186,7 @@ def randomize():
    for i in range(sz):
       for j in range(sz):
          start[i][j]=random.randint(1,2)
-   print_list(start)
+  # print_list(start)
    count_colors()
 
 
@@ -257,7 +283,7 @@ while run:
       print("Algorithm  :: ",Algorithm_Name)
       print("--------------------")
    xyt+=1
-   print(number_of_red)
+#  print(number_of_red)
    if menu_state == "main":
          screen.blit(Background_Main,(0,0))
          if Start_Button.draw(screen):
@@ -280,7 +306,7 @@ while run:
             randomize()
             runT1=0
             pygame.time.delay(delay)
-         print_list(start)
+         #print_list(start)
          display()
          text_red=Font_Main.render(str(number_of_red),False,'White')
          text_blue=Font_Main.render(str(number_of_blue),False,'White')
@@ -288,7 +314,6 @@ while run:
          screen.blit(text_blue,(300,300))
          
          
-
          
                      
    elif menu_state == "SelectFamily":
@@ -347,15 +372,22 @@ while run:
 
    if Algorithm_Name=="DFS":     
       screen.blit(Background_game,(0,0))
-      if Algorithm_Name=="DFS" and bb==0:
-          start_time = time.time()
-          ansA=total.dfs()
-          #print_list(ansA)
-          
-          display_Algo()          
-          end_time = time.time()
-          elapsed_time_m = (end_time - start_time) * 1000
-      bb+=1
+      if Algorithm_Name=="DFS":
+         display()
+         start_time = time.time()          
+         ansA=total.a_star(start)
+         print(len(ansA))
+         end_time = time.time()
+         elapsed_time_ms = (end_time - start_time) * 1000
+         elapsed_time_m=math.trunc(elapsed_time_ms) 
+         
+         lengthof_selution=len(ansA)
+         total_state=0
+         complet="NO"
+         optemal="YES"
+         Ospace=sys.getsizeof(ansA)
+         display_Algo()          
+      
           
 
    
@@ -392,3 +424,10 @@ while run:
    
 
 pygame.quit()
+
+
+'''
+print_list(ansA)
+   duid=sys.getsizeof(ansA)
+   print(duid)
+   '''
