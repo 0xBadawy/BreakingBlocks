@@ -43,6 +43,7 @@ Btn_ID_img = pygame.image.load('Image\Btn_ID.png').convert_alpha()
 Btn_Gready_img = pygame.image.load('Image\Btn_gready.png').convert_alpha()
 Btn_A_img = pygame.image.load('Image\Btn_A.png').convert_alpha()
 
+Btn_Back_img = pygame.image.load('Image\Trans_n.png').convert_alpha()
 
 Exit_Button = Button.Button(510, 400, Btn_Exit_img, 1)
 Info_Button = Button.Button(510, 335, Btn_Info_img, 1)
@@ -61,7 +62,9 @@ UCS_Button = Button.Button(450, 505, Btn_UCS_img, 1)
 Gready_Button = Button.Button(510, 270, Btn_Gready_img, 1)
 A_Button = Button.Button(510, 370, Btn_A_img, 1)
 
-
+Exit_1_Button = Button.Button(590, 470, Btn_Back_img, 1)
+Exit_2_Button = Button.Button(570, 640, Btn_Back_img, 1)
+Exit_3_Button =  Button.Button(590, 470, Btn_Back_img, 1)
 
 
 
@@ -77,7 +80,7 @@ Rundom_Window=False
 Algorithm_Window=False
 clock =pygame.time.Clock()
 
-menu_state = "main"
+menu_state = "informed"
 Algorithm_Name = ""
 delay=250
 xyt=0
@@ -112,6 +115,9 @@ while run:
           if informed_Button.draw(screen):
              menu_state = "informed"
              pygame.time.delay(delay)
+          if Exit_1_Button.draw(screen):
+             menu_state = "main"
+             pygame.time.delay(delay)
 
     elif menu_state == "Uninformed":
           screen.blit(Background_Uninformed,(0,0))
@@ -130,6 +136,9 @@ while run:
           if DLS_Button.draw(screen):
              Algorithm_Name="DLS"
              pygame.time.delay(delay)
+          if Exit_2_Button.draw(screen):
+              menu_state = "SelectFamily"
+              pygame.time.delay(delay)
 
 
     elif menu_state == "informed":
@@ -140,6 +149,10 @@ while run:
           if A_Button.draw(screen):
              Algorithm_Name="A"
              pygame.time.delay(delay)
+          if Exit_3_Button.draw(screen):
+             menu_state = "SelectFamily"
+             pygame.time.delay(delay)
+
 
 
 
