@@ -3,6 +3,27 @@ import Button
 
 pygame.init()
 
+
+
+
+
+def display():   
+   space=63
+   for i in range(sz):
+      for j in range(sz):
+            if(temp[i][j]=='b'):
+               screen.blit(Yellow, ( 465+(j*space)  ,  60 +(i*space)   )  )
+            if(temp[i][j]=='r'):
+               screen.blit(Red,    ( 465+(j*space)  ,  60 +(i*space)    ) )
+            if(temp[i][j]=='.'):
+               screen.blit(White,  ( 465+(j*space)  ,  60 +(i*space)    ) )  
+   pygame.display.update()
+   pygame.time.delay(1200)
+   # clock.tick(30)
+
+
+
+
 #create game window
 SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = 750
@@ -26,6 +47,8 @@ Background_Main = pygame.image.load('Image/background_G.png')
 Background_Family = pygame.image.load('Image/Background_Family.png')
 Background_Uninformed = pygame.image.load('Image/Background_Uninformed.png')
 Background_informed = pygame.image.load('Image/Background_informed.png')
+Background_rundom = pygame.image.load('Image/Background_rundom.png')
+
 Btn_Exit_img = pygame.image.load('Image/Btn_Exit.png').convert_alpha()
 Btn_Info_img = pygame.image.load('Image/Btn_Info.png').convert_alpha()
 Btn_Start_img = pygame.image.load('Image/Btn_Start.png').convert_alpha()
@@ -39,6 +62,8 @@ Btn_DFS_img = pygame.image.load('Image\Btn_DFS.png').convert_alpha()
 Btn_DLS_img = pygame.image.load('Image\Btn_DLS.png').convert_alpha()
 Btn_UCS_img = pygame.image.load('Image\Btn_UCS.png').convert_alpha()
 Btn_ID_img = pygame.image.load('Image\Btn_ID.png').convert_alpha()
+
+Btn_rundom_img = pygame.image.load('Image\Btn_rundom.png').convert_alpha()
 
 Btn_Gready_img = pygame.image.load('Image\Btn_gready.png').convert_alpha()
 Btn_A_img = pygame.image.load('Image\Btn_A.png').convert_alpha()
@@ -66,6 +91,7 @@ Exit_1_Button = Button.Button(590, 470, Btn_Back_img, 1)
 Exit_2_Button = Button.Button(570, 640, Btn_Back_img, 1)
 Exit_3_Button =  Button.Button(590, 470, Btn_Back_img, 1)
 
+Rundom_Button =  Button.Button(50, 470, Btn_rundom_img, 1)
 
 
 
@@ -123,21 +149,27 @@ while run:
           screen.blit(Background_Uninformed,(0,0))
           if DFS_Button.draw(screen):
              Algorithm_Name="DFS"
+             menu_state = "RundomTest"
              pygame.time.delay(delay)
           if BFS_Button.draw(screen):
              Algorithm_Name="BFS"
+             menu_state = "RundomTest"
              pygame.time.delay(delay)
           if ID_Button.draw(screen):
              Algorithm_Name="ID"
+             menu_state = "RundomTest"
              pygame.time.delay(delay)
           if UCS_Button.draw(screen):
              Algorithm_Name="UCS"
+             menu_state = "RundomTest"
              pygame.time.delay(delay)
           if DLS_Button.draw(screen):
              Algorithm_Name="DLS"
+             menu_state = "RundomTest"
              pygame.time.delay(delay)
           if Exit_2_Button.draw(screen):
               menu_state = "SelectFamily"
+              Algorithm_Name=""
               pygame.time.delay(delay)
 
 
@@ -145,15 +177,24 @@ while run:
           screen.blit(Background_informed,(0,0))
           if Gready_Button.draw(screen):
              Algorithm_Name="Gready"
+             menu_state = "RundomTest"
              pygame.time.delay(delay)
           if A_Button.draw(screen):
+             menu_state = "RundomTest"
              Algorithm_Name="A"
              pygame.time.delay(delay)
           if Exit_3_Button.draw(screen):
              menu_state = "SelectFamily"
+             Algorithm_Name=""
              pygame.time.delay(delay)
 
-
+    if Algorithm_Name!="":
+         screen.blit(Background_rundom,(0,0))
+         if Rundom_Button.draw(screen):
+            Algorithm_Name="Gready"
+            pygame.time.delay(delay)
+         
+        
 
 
     '''
