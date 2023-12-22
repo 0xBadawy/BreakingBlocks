@@ -1,27 +1,31 @@
 import pygame
 import Button
-
+import random
 pygame.init()
 
 
+sz=10
+number_of_red=0
+number_of_blue=0
+start = [[0] * sz for _ in range(sz)]
 
 
 
-def display():   
-   space=63
+def count_colors():
+   number_of_red=0
+   number_of_blue=0
    for i in range(sz):
       for j in range(sz):
-            if(temp[i][j]=='b'):
-               screen.blit(Yellow, ( 465+(j*space)  ,  60 +(i*space)   )  )
-            if(temp[i][j]=='r'):
-               screen.blit(Red,    ( 465+(j*space)  ,  60 +(i*space)    ) )
-            if(temp[i][j]=='.'):
-               screen.blit(White,  ( 465+(j*space)  ,  60 +(i*space)    ) )  
-   pygame.display.update()
-   pygame.time.delay(1200)
-   # clock.tick(30)
+         if start[i][j]==1:
+            number_of_red+=1
+         else:
+            number_of_blue+=1
 
 
+def randomize():
+   for i in range(sz):
+      for j in range(sz):
+         start[i][j]=random.randint(1,2)
 
 
 #create game window
@@ -96,8 +100,8 @@ Rundom_Button =  Button.Button(50, 470, Btn_rundom_img, 1)
 
 
 def draw_text(text, font, text_col, x, y):
-  img = font.render(text, True, text_col)
-  screen.blit(img, (x, y))
+   img = font.render(text, True, text_col)
+   screen.blit(img, (x, y))
 
 #game loop
 run = True
@@ -112,89 +116,88 @@ delay=250
 xyt=0
 
 while run:
-    
-    if(xyt%10==0):
+   
+   if(xyt%10==0):
       print("menu state :: ",menu_state)
       print("Algorithm  :: ",Algorithm_Name)
       print("--------------------")
-    xyt+=1
-    
-    if menu_state == "main":
-          screen.blit(Background_Main,(0,0))
-          if Start_Button.draw(screen):
-             menu_state = "SelectFamily"
-             pygame.time.delay(delay)
-          if Info_Button.draw(screen):
-             menu_state = "options"
-             pygame.time.delay(delay)
-          if Exit_Button.draw(screen):
-             run = False   
-             
-                      
-    elif menu_state == "SelectFamily":
-          screen.blit(Background_Family,(0,0))
-          if uninformed_Button.draw(screen):
-              menu_state = "Uninformed"
-              pygame.time.delay(delay)
-          if Exit_Button.draw(screen):
-             run = False    
-          if informed_Button.draw(screen):
-             menu_state = "informed"
-             pygame.time.delay(delay)
-          if Exit_1_Button.draw(screen):
-             menu_state = "main"
-             pygame.time.delay(delay)
+   xyt+=1
+   
+   if menu_state == "main":
+         screen.blit(Background_Main,(0,0))
+         if Start_Button.draw(screen):
+            menu_state = "SelectFamily"
+            pygame.time.delay(delay)
+         if Info_Button.draw(screen):
+            menu_state = "options"
+            pygame.time.delay(delay)
+         if Exit_Button.draw(screen):
+            run = False   
+            
+                     
+   elif menu_state == "SelectFamily":
+         screen.blit(Background_Family,(0,0))
+         if uninformed_Button.draw(screen):
+            menu_state = "Uninformed"
+            pygame.time.delay(delay)
+         if Exit_Button.draw(screen):
+            run = False    
+         if informed_Button.draw(screen):
+            menu_state = "informed"
+            pygame.time.delay(delay)
+         if Exit_1_Button.draw(screen):
+            menu_state = "main"
+            pygame.time.delay(delay)
 
-    elif menu_state == "Uninformed":
-          screen.blit(Background_Uninformed,(0,0))
-          if DFS_Button.draw(screen):
-             Algorithm_Name="DFS"
-             menu_state = "RundomTest"
-             pygame.time.delay(delay)
-          if BFS_Button.draw(screen):
-             Algorithm_Name="BFS"
-             menu_state = "RundomTest"
-             pygame.time.delay(delay)
-          if ID_Button.draw(screen):
-             Algorithm_Name="ID"
-             menu_state = "RundomTest"
-             pygame.time.delay(delay)
-          if UCS_Button.draw(screen):
-             Algorithm_Name="UCS"
-             menu_state = "RundomTest"
-             pygame.time.delay(delay)
-          if DLS_Button.draw(screen):
-             Algorithm_Name="DLS"
-             menu_state = "RundomTest"
-             pygame.time.delay(delay)
-          if Exit_2_Button.draw(screen):
-              menu_state = "SelectFamily"
-              Algorithm_Name=""
-              pygame.time.delay(delay)
+   elif menu_state == "Uninformed":
+         screen.blit(Background_Uninformed,(0,0))
+         if DFS_Button.draw(screen):
+            Algorithm_Name="DFS"
+            menu_state = "RundomTest"
+            pygame.time.delay(delay)
+         if BFS_Button.draw(screen):
+            Algorithm_Name="BFS"
+            menu_state = "RundomTest"
+            pygame.time.delay(delay)
+         if ID_Button.draw(screen):
+            Algorithm_Name="ID"
+            menu_state = "RundomTest"
+            pygame.time.delay(delay)
+         if UCS_Button.draw(screen):
+            Algorithm_Name="UCS"
+            menu_state = "RundomTest"
+            pygame.time.delay(delay)
+         if DLS_Button.draw(screen):
+            Algorithm_Name="DLS"
+            menu_state = "RundomTest"
+            pygame.time.delay(delay)
+         if Exit_2_Button.draw(screen):
+            menu_state = "SelectFamily"
+            Algorithm_Name=""
+            pygame.time.delay(delay)
 
+   elif menu_state == "informed":
+         screen.blit(Background_informed,(0,0))
+         if Gready_Button.draw(screen):
+            Algorithm_Name="Gready"
+            menu_state = "RundomTest"
+            pygame.time.delay(delay)
+         if A_Button.draw(screen):
+            menu_state = "RundomTest"
+            Algorithm_Name="A"
+            pygame.time.delay(delay)
+         if Exit_3_Button.draw(screen):
+            menu_state = "SelectFamily"
+            Algorithm_Name=""
+            pygame.time.delay(delay)
 
-    elif menu_state == "informed":
-          screen.blit(Background_informed,(0,0))
-          if Gready_Button.draw(screen):
-             Algorithm_Name="Gready"
-             menu_state = "RundomTest"
-             pygame.time.delay(delay)
-          if A_Button.draw(screen):
-             menu_state = "RundomTest"
-             Algorithm_Name="A"
-             pygame.time.delay(delay)
-          if Exit_3_Button.draw(screen):
-             menu_state = "SelectFamily"
-             Algorithm_Name=""
-             pygame.time.delay(delay)
-
-    if Algorithm_Name!="":
+   if Algorithm_Name!="":
          screen.blit(Background_rundom,(0,0))
          if Rundom_Button.draw(screen):
             Algorithm_Name="Gready"
             pygame.time.delay(delay)
          
-        
+      
 
 
     '''
