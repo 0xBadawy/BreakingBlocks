@@ -165,7 +165,7 @@ def bfs(start):
     return  [ans , Number_of_state+len(q) ]
 
 def depth_limit_search(start):
-    limit=5
+    limit=6
     pth=[]
     mp = {}
     Number_of_state=0
@@ -190,14 +190,9 @@ def depth_limit_search(start):
                     floodfill(i,j,newcur,newcur[i][j])
                     fall(newcur)
                     fall2(newcur)
-                    newcur_tuple = tuple(map(tuple, newcur))  # Convert the list to a tuple of tuples
-                    if newcur_tuple not in mp:
-                        mp[tuple(map(tuple, newcur))] = 1
-                        q.append((newcur, x + 1,path+[i,j]))
+                    q.append((newcur, x + 1,path+[i,j]))
     # Reconstruct the path
-    if len(pth)==0:
-        print("no answer found")
-        exit()
+    
     ans = []
     a=0
     nw=copy.deepcopy(start)

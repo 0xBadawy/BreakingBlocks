@@ -400,7 +400,7 @@ while run:
          lengthof_selution= math.trunc (len(ansA)/3)
         # 
          complet="NO"
-         optemal="YES"
+         optemal="NO"
          Ospace=math.trunc(total_state*400/1024)
          display_Algo()  
          pygame.time.delay(1500)
@@ -420,7 +420,7 @@ while run:
          elapsed_time_m=math.trunc(elapsed_time_ms)          
          lengthof_selution= math.trunc (len(ansA)/3)
          
-         complet="NO"
+         complet="YES"
          optemal="YES"
          Ospace=math.trunc(total_state*400/1024)
          display_Algo()
@@ -439,7 +439,7 @@ while run:
          elapsed_time_m=math.trunc(elapsed_time_ms)          
          lengthof_selution= math.trunc (len(ansA)/3)
          
-         complet="NO"
+         complet="YES"
          optemal="YES"
          Ospace=math.trunc(total_state*400/1024)
          display_Algo()    
@@ -460,7 +460,7 @@ while run:
          lengthof_selution= math.trunc (len(ansA)/3)
          
          complet="NO"
-         optemal="YES"
+         optemal="NO"
          Ospace=math.trunc(total_state*400/1024)
          display_Algo()         
          pygame.time.delay(1500)
@@ -478,8 +478,8 @@ while run:
          elapsed_time_m=math.trunc(elapsed_time_ms)          
          lengthof_selution= math.trunc (len(ansA)/3)
          
-         complet="NO"
-         optemal="YES"
+         complet=" "
+         optemal=" "
          Ospace=math.trunc(total_state*400/1024)
          display_Algo()
          pygame.time.delay(1500)
@@ -497,7 +497,7 @@ while run:
          elapsed_time_m=math.trunc(elapsed_time_ms)          
          lengthof_selution= math.trunc (len(ansA)/3)
          
-         complet="NO"
+         complet="YES"
          optemal="YES"
          Ospace=math.trunc(total_state*400/1024)
          display_Algo()
@@ -516,7 +516,7 @@ while run:
          elapsed_time_m=math.trunc(elapsed_time_ms)          
          lengthof_selution= math.trunc (len(ansA)/3)
          
-         complet="NO"
+         complet="YES"
          optemal="YES"
          Ospace=math.trunc(total_state*400/1024)
          display_Algo()
