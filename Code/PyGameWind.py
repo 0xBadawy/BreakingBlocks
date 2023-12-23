@@ -44,7 +44,9 @@ lengthof_selution=0
 total_state=0
 complet="NO"
 optemal="YES"
+Algo_Name="uniform_cost_search"
 Ospace=10
+TEXT_COL = (69, 43, 6)
 
 ansA = []
 #-------------------
@@ -165,6 +167,9 @@ def display_Algo():
 
       text_DFS_Time=Font_Main.render(str(total_state)+" ",False,'White')
       screen.blit(text_DFS_Time,(265,355)) 
+      
+      text_Algo=Font_Main.render(str(Algo_Name),False,TEXT_COL)
+      screen.blit(text_Algo,(100,128))
 
       pygame.display.update()
       pygame.time.delay(1200)
@@ -206,7 +211,7 @@ pygame.display.set_caption("Main Menu")
 game_paused = False
 menu_state = "main"
 
-TEXT_COL = (255, 255, 255)
+TEXT_COL = (69, 43, 6)
 
 Font_Main=pygame.font.Font('Font\\Glue Gun.otf', 30)
 
@@ -401,6 +406,7 @@ while run:
         # 
          complet="NO"
          optemal="NO"
+         Algo_Name="Depth First Search"
          Ospace=math.trunc(total_state*400/1024)
          display_Algo()  
          pygame.time.delay(1500)
@@ -419,7 +425,7 @@ while run:
          elapsed_time_ms = (end_time - start_time) * 1000
          elapsed_time_m=math.trunc(elapsed_time_ms)          
          lengthof_selution= math.trunc (len(ansA)/3)
-         
+         Algo_Name="a star    algorithm"
          complet="YES"
          optemal="YES"
          Ospace=math.trunc(total_state*400/1024)
@@ -438,7 +444,7 @@ while run:
          elapsed_time_ms = (end_time - start_time) * 1000
          elapsed_time_m=math.trunc(elapsed_time_ms)          
          lengthof_selution= math.trunc (len(ansA)/3)
-         
+         Algo_Name="Breadth First Search"
          complet="YES"
          optemal="YES"
          Ospace=math.trunc(total_state*400/1024)
@@ -458,7 +464,7 @@ while run:
          elapsed_time_ms = (end_time - start_time) * 1000
          elapsed_time_m=math.trunc(elapsed_time_ms)          
          lengthof_selution= math.trunc (len(ansA)/3)
-         
+         Algo_Name="depth limit search"
          complet="NO"
          optemal="NO"
          Ospace=math.trunc(total_state*400/1024)
@@ -477,9 +483,9 @@ while run:
          elapsed_time_ms = (end_time - start_time) * 1000
          elapsed_time_m=math.trunc(elapsed_time_ms)          
          lengthof_selution= math.trunc (len(ansA)/3)
-         
-         complet=" "
-         optemal=" "
+         Algo_Name="greedy best first"
+         complet="NO"
+         optemal="No"
          Ospace=math.trunc(total_state*400/1024)
          display_Algo()
          pygame.time.delay(1500)
@@ -496,7 +502,7 @@ while run:
          elapsed_time_ms = (end_time - start_time) * 1000
          elapsed_time_m=math.trunc(elapsed_time_ms)          
          lengthof_selution= math.trunc (len(ansA)/3)
-         
+         Algo_Name="itirative depth limit"
          complet="YES"
          optemal="YES"
          Ospace=math.trunc(total_state*400/1024)
@@ -515,7 +521,7 @@ while run:
          elapsed_time_ms = (end_time - start_time) * 1000
          elapsed_time_m=math.trunc(elapsed_time_ms)          
          lengthof_selution= math.trunc (len(ansA)/3)
-         
+         Algo_Name="uniform cost search"
          complet="YES"
          optemal="YES"
          Ospace=math.trunc(total_state*400/1024)
