@@ -115,9 +115,9 @@ runT1=1
 
 start = [[0] * sz for _ in range(sz)]
 
-Red = pygame.image.load('Image/red.png') 
-Yellow = pygame.image.load('Image/Yellow.png')
-White = pygame.image.load('Image/trans_n.png') 
+Red = pygame.image.load('Image\\red.png') 
+Yellow = pygame.image.load('Image\\Yellow.png')
+White = pygame.image.load('Image\\trans_n.png') 
 
 
 def display():
@@ -208,20 +208,20 @@ menu_state = "main"
 
 TEXT_COL = (255, 255, 255)
 
-Font_Main=pygame.font.Font('Font/Glue Gun.otf', 30)
+Font_Main=pygame.font.Font('Font\\Glue Gun.otf', 30)
 
-Background_Main = pygame.image.load('Image/background_G.png')
-Background_Family = pygame.image.load('Image/Background_Family.png')
-Background_Uninformed = pygame.image.load('Image/Background_Uninformed.png')
-Background_informed = pygame.image.load('Image/Background_informed.png')
-Background_rundom = pygame.image.load('Image/Background_rundom.png')
-Background_game = pygame.image.load('Image/Background_game.png')
+Background_Main = pygame.image.load('Image\\background_G.png')
+Background_Family = pygame.image.load('Image\\Background_Family.png')
+Background_Uninformed = pygame.image.load('Image\\Background_Uninformed.png')
+Background_informed = pygame.image.load('Image\\Background_informed.png')
+Background_rundom = pygame.image.load('Image\\Background_rundom.png')
+Background_game = pygame.image.load('Image\\Background_game.png')
 
-Btn_Exit_img = pygame.image.load('Image/Btn_Exit.png').convert_alpha()
-Btn_Info_img = pygame.image.load('Image/Btn_Info.png').convert_alpha()
-Btn_Start_img = pygame.image.load('Image/Btn_Start.png').convert_alpha()
+Btn_Exit_img = pygame.image.load('Image\\Btn_Exit.png').convert_alpha()
+Btn_Info_img = pygame.image.load('Image\\Btn_Info.png').convert_alpha()
+Btn_Start_img = pygame.image.load('Image\\Btn_Start.png').convert_alpha()
 
-Btn_informed_img = pygame.image.load('Image/Btn_informed.png').convert_alpha()
+Btn_informed_img = pygame.image.load('Image\\Btn_informed.png').convert_alpha()
 Btn_uninformed_img = pygame.image.load('Image\Btn_unInofrmed.png').convert_alpha()
 Btn_home_img = pygame.image.load('Image\Btn_home.png').convert_alpha()
 
