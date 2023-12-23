@@ -67,12 +67,13 @@ def fall2(v):
                 k -= 1
 #------------------------------------------------------------------------
 def a_star(start):
-    mp = {}
-    
+    mp = {}  
+    Number_of_state=0
 
     # Using heapq for the priority queue
     q = [(heuristic_function(start), (start, []))]
     while q:
+        Number_of_state+=1
         x , (cur, path) = heapq.heappop(q)
         if finish(cur):
             pth = path
@@ -110,21 +111,21 @@ def a_star(start):
         a += 2
 
     ans.pop()
-    return ans
+    return  [ans , Number_of_state+len(q) ]
+    
 
-def bfs():
+def bfs(start):
     sz=10
     pth=[]
     newcur = []
     cur = []
-    start = [[0] * sz for _ in range(sz)]
+    Number_of_state=0
     mp = {}
-    for i in range(sz):
-        for j in range(sz):
-            start[i][j]=random.randint(1,2)
+    
     # Using deque for the queue
     q = deque([(start, 0,[])])
     while q:
+        Number_of_state+=1
         cur, x , path = q.popleft()
         if finish(cur):
             pth=path
@@ -161,18 +162,16 @@ def bfs():
         ans.append(nw)
         a += 2
     ans.pop()
-    return ans
+    return  [ans , Number_of_state+len(q) ]
 
-def depth_limit_search():
+def depth_limit_search(start):
     limit=5
     pth=[]
     mp = {}
-    for i in range(sz):
-        for j in range(sz):
-            start[i][j]=random.randint(1,2)
-    # Using deque for the queue
+    Number_of_state=0
     q = deque([(start, 0,[])])
     while q:
+        Number_of_state+=1
         cur, x , path = q.pop()
         if finish(cur):
             pth=path
@@ -215,16 +214,15 @@ def depth_limit_search():
         ans.append(nw)
         a += 2
     ans.pop()
-    return ans
+    return  [ans , Number_of_state+len(q) ]
 
-def dfs():
+def dfs(start):
     mp = {}
-    for i in range(sz):
-        for j in range(sz):
-            start[i][j]=random.randint(1,2)
+    Number_of_state=0
     # Using deque for the queue
     q = deque([(start, 0,[])])
     while q:
+        Number_of_state+=1
         cur, x , path = q.pop()
         if finish(cur):
             pth=path
@@ -261,17 +259,15 @@ def dfs():
         ans.append(nw)
         a += 2
     ans.pop()
-    return ans
+    return  [ans , Number_of_state+len(q) ]
 
-def greedy_best_first_search():
+def greedy_best_first_search(start):
     mp = {}
-    for i in range(sz):
-        for j in range(sz):
-            start[i][j]=random.randint(1,2)
-
+    Number_of_state=0
     # Using heapq for the priority queue
     q = [(heuristic_function(start), (start, []))]
     while q:
+        Number_of_state+=1
         x , (cur, path) = heapq.heappop(q)
         if finish(cur):
             pth = path
@@ -308,18 +304,16 @@ def greedy_best_first_search():
         ans.append(nw)
         a += 2
     ans.pop()
-    return ans
+    return  [ans , Number_of_state+len(q) ]
 
-def itirative_depth_limit_search():
+def itirative_depth_limit_search(start):
     b=0
-    for i in range(sz):
-        for j in range(sz):
-            start[i][j]=random.randint(1,2)
-
+    Number_of_state=0
     # Using deque for the queue
     for limit in range(100):
         q = deque([(start, 0,[])])
         while q:
+            Number_of_state+=1
             cur, x , path = q.pop()
             if finish(cur):
                 pth=path
@@ -360,18 +354,18 @@ def itirative_depth_limit_search():
         ans.append(nw)
         a += 2
     ans.pop()
-    return ans
+    return  [ans , Number_of_state+len(q) ]
 
-def uniform_cost_search():
+
+def uniform_cost_search(start):
     mp = {}
-    for i in range(sz):
-        for j in range(sz):
-            start[i][j]=random.randint(1,2)
-
+    Number_of_state=0
+    
     # Using heapq for the priority queue
     q = [(0, (start, []))]
 
     while q:
+        Number_of_state+=1
         x , (cur, path) = heapq.heappop(q)
         if finish(cur):
             pth = path
@@ -408,7 +402,7 @@ def uniform_cost_search():
         ans.append(nw)
         a += 2
     ans.pop()
-    return ans
+    return  [ans , Number_of_state+len(q) ]
 
 
 

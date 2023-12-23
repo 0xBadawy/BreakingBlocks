@@ -38,7 +38,7 @@ pth = []
 cur = []
 newcur = []
 start = [[0] * sz for _ in range(sz)]
-
+MainArray=[]
 elapsed_time_m=0
 lengthof_selution=0
 total_state=0
@@ -47,7 +47,12 @@ optemal="YES"
 Ospace=10
 
 ansA = []
-
+#-------------------
+def Exit_Button_Algo():
+   if Exit_4_Button.draw(screen):
+            menu_state = "SelectFamily"
+            Algorithm_Name="None"
+            pygame.time.delay(delay)
 #----------------------------------------------------------
 def heuristic_function(v):
     blue=0
@@ -146,7 +151,7 @@ def display_Algo():
       text_DFS_Time=Font_Main.render(str(elapsed_time_m)+" ms",False,'White')
       screen.blit(text_DFS_Time,(180,550)) 
 
-      text_DFS_Time=Font_Main.render(str(Ospace)+" ",False,'White')
+      text_DFS_Time=Font_Main.render(str(Ospace)+" Kb",False,'White')
       screen.blit(text_DFS_Time,(180,590)) 
 
       text_DFS_Time=Font_Main.render(str(optemal)+" ",False,'White')
@@ -155,10 +160,10 @@ def display_Algo():
       text_DFS_Time=Font_Main.render(str(complet)+" ",False,'White')
       screen.blit(text_DFS_Time,(270,450)) 
 
-      text_DFS_Time=Font_Main.render(str(total_state)+" ",False,'White')
+      text_DFS_Time=Font_Main.render(str(lengthof_selution)+" ",False,'White')
       screen.blit(text_DFS_Time,(315,400)) 
 
-      text_DFS_Time=Font_Main.render(str(lengthof_selution)+" ",False,'White')
+      text_DFS_Time=Font_Main.render(str(total_state)+" ",False,'White')
       screen.blit(text_DFS_Time,(265,355)) 
 
       pygame.display.update()
@@ -255,9 +260,13 @@ Exit_1_Button = Button.Button(590, 470, Btn_Back_img, 1)
 Exit_2_Button = Button.Button(570, 640, Btn_Back_img, 1)
 Exit_3_Button =  Button.Button(590, 470, Btn_Back_img, 1)
 
+Exit_4_Button =  Button.Button(195, 640, Red, 1) ########### ***--------
+
 Rundom_Button =  Button.Button(50, 470, Btn_rundom_img, 1)
 Rundom_Start_Button =  Button.Button(50, 570, Btn_Start_algo_img, 1)
 
+
+#-------------------
 
 
 def draw_text(text, font, text_col, x, y):
@@ -272,7 +281,7 @@ Algorithm_Window=False
 clock =pygame.time.Clock()
 
 menu_state = "main"
-Algorithm_Name = ""
+Algorithm_Name = "None"
 delay=250
 xyt=0
 
@@ -304,6 +313,7 @@ while run:
          if Rundom_Button.draw(screen):
             runT1=1
             randomize()
+            MainArray=copy.deepcopy(start)
             runT1=0
             pygame.time.delay(delay)
          #print_list(start)
@@ -334,7 +344,7 @@ while run:
          screen.blit(Background_Uninformed,(0,0))
          if DFS_Button.draw(screen):
             Algorithm_Name="DFS"
-            menu_state="Algo"
+            #menu_state="Algo"
             pygame.time.delay(delay)
          if BFS_Button.draw(screen):
             Algorithm_Name="BFS"
@@ -370,23 +380,149 @@ while run:
          Algorithm_Name=""
          pygame.time.delay(delay)
 
-   if Algorithm_Name=="DFS":     
+
+
+
+
+   if Algorithm_Name!="None":     
+      print("In Algorithm_Name : ")      
       screen.blit(Background_game,(0,0))
-      if Algorithm_Name=="DFS":
+      start=copy.deepcopy(MainArray)
+      if Algorithm_Name=="DFS":         
+         print("IDFS")
          display()
          start_time = time.time()          
-         ansA=total.a_star(start)
+         ansA , total_state =total.dfs(start)
          print(len(ansA))
          end_time = time.time()
          elapsed_time_ms = (end_time - start_time) * 1000
-         elapsed_time_m=math.trunc(elapsed_time_ms) 
-         
-         lengthof_selution=len(ansA)
-         total_state=0
+         elapsed_time_m=math.trunc(elapsed_time_ms)          
+         lengthof_selution= math.trunc (len(ansA)/3)
+        # 
          complet="NO"
          optemal="YES"
-         Ospace=sys.getsizeof(ansA)
-         display_Algo()          
+         Ospace=math.trunc(total_state*400/1024)
+         display_Algo()  
+         pygame.time.delay(1500)
+         menu_state = "SelectFamily"
+         Algorithm_Name="None"
+         
+         
+            
+      elif Algorithm_Name=="A":
+         print("As")
+         display()
+         start_time = time.time()          
+         ansA , total_state=total.a_star(start)
+         print(len(ansA))
+         end_time = time.time()
+         elapsed_time_ms = (end_time - start_time) * 1000
+         elapsed_time_m=math.trunc(elapsed_time_ms)          
+         lengthof_selution= math.trunc (len(ansA)/3)
+         
+         complet="NO"
+         optemal="YES"
+         Ospace=math.trunc(total_state*400/1024)
+         display_Algo()
+         pygame.time.delay(1500)
+         menu_state = "SelectFamily"
+         Algorithm_Name="None"
+             
+      elif Algorithm_Name=="BFS":
+         print("BFS")
+         display()
+         start_time = time.time()          
+         ansA , total_state=total.bfs(start)
+         print(len(ansA))
+         end_time = time.time()
+         elapsed_time_ms = (end_time - start_time) * 1000
+         elapsed_time_m=math.trunc(elapsed_time_ms)          
+         lengthof_selution= math.trunc (len(ansA)/3)
+         
+         complet="NO"
+         optemal="YES"
+         Ospace=math.trunc(total_state*400/1024)
+         display_Algo()    
+         pygame.time.delay(1500)
+         menu_state = "SelectFamily"
+         Algorithm_Name="None"
+            
+      elif Algorithm_Name=="DLS":
+         print("DLS")
+
+         display()
+         start_time = time.time()          
+         ansA , total_state=total.depth_limit_search(start)
+         print(len(ansA))
+         end_time = time.time()
+         elapsed_time_ms = (end_time - start_time) * 1000
+         elapsed_time_m=math.trunc(elapsed_time_ms)          
+         lengthof_selution= math.trunc (len(ansA)/3)
+         
+         complet="NO"
+         optemal="YES"
+         Ospace=math.trunc(total_state*400/1024)
+         display_Algo()         
+         pygame.time.delay(1500)
+         menu_state = "SelectFamily"
+         Algorithm_Name="None"
+            
+      elif Algorithm_Name=="Gready":
+         print("Geady")
+         display()
+         start_time = time.time()          
+         ansA , total_state=total.greedy_best_first_search(start)
+         print(len(ansA))
+         end_time = time.time()
+         elapsed_time_ms = (end_time - start_time) * 1000
+         elapsed_time_m=math.trunc(elapsed_time_ms)          
+         lengthof_selution= math.trunc (len(ansA)/3)
+         
+         complet="NO"
+         optemal="YES"
+         Ospace=math.trunc(total_state*400/1024)
+         display_Algo()
+         pygame.time.delay(1500)
+         menu_state = "SelectFamily"
+         Algorithm_Name="None"
+            
+      elif Algorithm_Name=="ID":
+         print("ID")
+         display()
+         start_time = time.time()          
+         ansA , total_state=total.itirative_depth_limit_search(start)
+         print(len(ansA))
+         end_time = time.time()
+         elapsed_time_ms = (end_time - start_time) * 1000
+         elapsed_time_m=math.trunc(elapsed_time_ms)          
+         lengthof_selution= math.trunc (len(ansA)/3)
+         
+         complet="NO"
+         optemal="YES"
+         Ospace=math.trunc(total_state*400/1024)
+         display_Algo()
+         pygame.time.delay(1500)
+         menu_state = "SelectFamily"
+         Algorithm_Name="None"
+            
+      elif Algorithm_Name=="UCS":
+         print("UCS")
+         display()
+         start_time = time.time()          
+         ansA , total_state=total.uniform_cost_search(start)
+         print(len(ansA))
+         end_time = time.time()
+         elapsed_time_ms = (end_time - start_time) * 1000
+         elapsed_time_m=math.trunc(elapsed_time_ms)          
+         lengthof_selution= math.trunc (len(ansA)/3)
+         
+         complet="NO"
+         optemal="YES"
+         Ospace=math.trunc(total_state*400/1024)
+         display_Algo()
+         pygame.time.delay(1500)
+         menu_state = "SelectFamily"
+         Algorithm_Name="None"
       
           
 
