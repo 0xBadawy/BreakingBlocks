@@ -416,7 +416,7 @@ while run:
          elapsed_time_m=math.trunc(elapsed_time_ms)          
          lengthof_selution= math.trunc (len(ansA)/3)
         # 
-         complet="NO"
+         complet="YES"
          optemal="NO"
          Algo_Name="Depth First Search"
          Ospace=math.trunc(total_state*400/1024)
