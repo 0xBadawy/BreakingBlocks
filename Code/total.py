@@ -65,11 +65,15 @@ def fall2(v):
                     v[j][k] = v[j][k + 1]
                     v[j][k + 1] = 0
                 k -= 1
-#------------------------------------------------------------------------
+                
+                
+                
+                
+                
+#------------------------------------------------------------------------------ a_star Algorithm --------
 def a_star(start):
     mp = {}  
     Number_of_state=0
-
     # Using heapq for the priority queue
     q = [(heuristic_function(start), (start, []))]
     while q:
@@ -114,6 +118,15 @@ def a_star(start):
     return  [ans , Number_of_state+len(q) ]
     
 
+
+
+
+
+
+
+
+
+#------------------------------------------------------------------------------ BFS Algorithm --------
 def bfs(start):
     sz=10
     pth=[]
@@ -164,6 +177,18 @@ def bfs(start):
     ans.pop()
     return  [ans , Number_of_state+len(q) ]
 
+
+
+
+
+
+
+
+
+
+
+#------------------------------------------------------------------------------ depth_limit_search Algorithm --------
+
 def depth_limit_search(start):
     limit=6
     pth=[]
@@ -211,6 +236,17 @@ def depth_limit_search(start):
     ans.pop()
     return  [ans , Number_of_state+len(q) ]
 
+
+
+
+
+
+
+
+
+
+
+#------------------------------------------------------------------------------ dfs Algorithm --------
 def dfs(start):
     mp = {}
     Number_of_state=0
@@ -225,7 +261,6 @@ def dfs(start):
         for i in range(sz):
             for j in range(sz):
                 check[i][j] = 0 if cur[i][j] == 0 else 1
-
         for i in range(sz):
             for j in range(sz):
                 if check[i][j] == 1:
@@ -256,6 +291,18 @@ def dfs(start):
     ans.pop()
     return  [ans , Number_of_state+len(q) ]
 
+
+
+
+
+
+
+
+
+
+
+
+#------------------------------------------------------------------------------ greedy_best_first_search Algorithm --------
 def greedy_best_first_search(start):
     mp = {}
     Number_of_state=0
@@ -300,6 +347,19 @@ def greedy_best_first_search(start):
         a += 2
     ans.pop()
     return  [ans , Number_of_state+len(q) ]
+
+
+
+
+
+
+
+
+
+
+
+
+#------------------------------------------------------------------------------ itirative depth limit search Algorithm --------
 
 def itirative_depth_limit_search(start):
     b=0
@@ -352,13 +412,15 @@ def itirative_depth_limit_search(start):
     return  [ans , Number_of_state+len(q) ]
 
 
+
+
+
+
+#------------------------------------------------------------------------------ uniform_cost_search Algorithm --------
 def uniform_cost_search(start):
     mp = {}
-    Number_of_state=0
-    
-    # Using heapq for the priority queue
+    Number_of_state=0    
     q = [(0, (start, []))]
-
     while q:
         Number_of_state+=1
         x , (cur, path) = heapq.heappop(q)

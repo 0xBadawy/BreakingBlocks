@@ -47,15 +47,18 @@ optemal="YES"
 Algo_Name="uniform_cost_search"
 Ospace=10
 TEXT_COL = (69, 43, 6)
-
+bb=0
+sz=10
+number_of_red = 0
+number_of_blue = 0
+TimeE=10
+runT1=1
+start = [[0] * sz for _ in range(sz)]
 ansA = []
-#-------------------
-def Exit_Button_Algo():
-   if Exit_4_Button.draw(screen):
-            menu_state = "SelectFamily"
-            Algorithm_Name="None"
-            pygame.time.delay(delay)
-#----------------------------------------------------------
+
+
+
+#----------------------------------------------------------------------- heuristic function --------
 def heuristic_function(v):
     blue=0
     red=0
@@ -67,12 +70,16 @@ def heuristic_function(v):
                 blue=1
     return red+blue
 
+
+#----------------------------------------------------------------------- finish function --------
 def finish(v):
     for j in range(sz):
         if v[sz - 1][j] != 0:
             return False
     return True
 
+
+#----------------------------------------------------------------------- floodfill function --------
 def floodfill(i, j, v, c):
     if v[i][j] == c:
         v[i] = list(v[i])  # Convert the string to a list of characters
@@ -83,6 +90,8 @@ def floodfill(i, j, v, c):
             if 0 <= ii < sz and 0 <= jj < sz:
                 floodfill(ii, jj, v, c)
 
+
+#----------------------------------------------------------------------- fall function --------
 def fall(v):
     for i in range(sz - 2, -1, -1):
         for j in range(sz):
@@ -92,7 +101,9 @@ def fall(v):
                     v[k + 1][j] = v[k][j]  # Reassign the value in the list
                     v[k][j] = 0  # Reassign the value in the list
                     k += 1
-
+                    
+                    
+#----------------------------------------------------------------------- fall function --------
 def fall2(v):
     for i in range(sz - 1):
         if v[sz - 1][i] == 0 and v[sz - 1][i + 1] != 0:
@@ -102,29 +113,25 @@ def fall2(v):
                     v[j][k] = v[j][k + 1]
                     v[j][k + 1] = 0
                 k -= 1
-#------------------------------------------------------------------------
-############################################################
-############################################################
-############################################################
-############################################################
-bb=0
-sz=10
-number_of_red = 0
-number_of_blue = 0
-TimeE=10
 
-runT1=1
 
-start = [[0] * sz for _ in range(sz)]
+#----------------------------------------------------------------------- Sound initialize --------
+Play_effect = pygame.mixer.Sound("Sound\\Game2.mp3")
+Win_effect = pygame.mixer.Sound("Sound\\success.mp3")
 
+
+#----------------------------------------------------------------------- Color initialize --------
 Red = pygame.image.load('Image\\red.png') 
 Yellow = pygame.image.load('Image\\Yellow.png')
 White = pygame.image.load('Image\\trans_n.png') 
 
 
+
+
+
+#----------------------------------------------------------------------- Display function --------
 def display():
       space=63
-   #if runT1==1:
       for i in range(sz):
          for j in range(sz):
                if(start[i][j]==1):
@@ -132,11 +139,7 @@ def display():
                if(start[i][j]==2):
                   screen.blit(Red,    ( 520+(j*space)  ,  70 +(i*space)    ) )
                if(start[i][j]==0):
-                  screen.blit(White,  ( 520+(j*space)  ,  70 +(i*space)    ) ) 
-     # pygame.display.update()
-
-Play_effect = pygame.mixer.Sound("Sound\\Game2.mp3")
-Win_effect = pygame.mixer.Sound("Sound\\success.mp3")
+                  screen.blit(White,  ( 520+(j*space)  ,  70 +(i*space)    ) )      
 
 def display_Algo():
    currarray=[]
@@ -157,24 +160,18 @@ def display_Algo():
                   screen.blit(White,  ( 500+(j*space)  ,  65 +(i*space)    ) )
 
       text_DFS_Time=Font_Main.render(str(elapsed_time_m)+" ms",False,'White')
-      screen.blit(text_DFS_Time,(180,550)) 
-
       text_DFS_Time=Font_Main.render(str(Ospace)+" Kb",False,'White')
-      screen.blit(text_DFS_Time,(180,590)) 
-
       text_DFS_Time=Font_Main.render(str(optemal)+" ",False,'White')
-      screen.blit(text_DFS_Time,(250,497)) 
-
       text_DFS_Time=Font_Main.render(str(complet)+" ",False,'White')
-      screen.blit(text_DFS_Time,(270,450)) 
-
       text_DFS_Time=Font_Main.render(str(lengthof_selution)+" ",False,'White')
-      screen.blit(text_DFS_Time,(315,400)) 
-
       text_DFS_Time=Font_Main.render(str(total_state)+" ",False,'White')
-      screen.blit(text_DFS_Time,(265,355)) 
-      
       text_Algo=Font_Main.render(str(Algo_Name),False,TEXT_COL)
+      screen.blit(text_DFS_Time,(180,550)) 
+      screen.blit(text_DFS_Time,(180,590)) 
+      screen.blit(text_DFS_Time,(250,497)) 
+      screen.blit(text_DFS_Time,(270,450)) 
+      screen.blit(text_DFS_Time,(265,355)) 
+      screen.blit(text_DFS_Time,(315,400)) 
       screen.blit(text_Algo,(100,128))
       pygame.display.update()
       pygame.time.delay(1200)
@@ -183,6 +180,8 @@ def display_Algo():
 
 
 
+
+#----------------------------------------------------------------------- count colors function --------
 def count_colors():  
     global number_of_red, number_of_blue
     red=0
@@ -196,29 +195,20 @@ def count_colors():
     number_of_blue=blue
     number_of_red=red
 
-
-
-
+#----------------------------------------------------------------------- randomize function --------
 def randomize():
    for i in range(sz):
       for j in range(sz):
          start[i][j]=random.randint(1,2)
-  # print_list(start)
    count_colors()
 
 
-#create game window
 SCREEN_WIDTH = 1200
 SCREEN_HEIGHT = 750
-
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Ai Project")
 
-#game variables
 game_paused = False
-menu_state = "main"
-
-TEXT_COL = (69, 43, 6)
 
 Font_Main=pygame.font.Font('Font\\Glue Gun.otf', 30)
 
@@ -275,27 +265,23 @@ A_Button = Button.Button(510, 370, Btn_A_img, 1)
 Exit_1_Button = Button.Button(590, 470, Btn_Back_img, 1)
 Exit_2_Button = Button.Button(570, 640, Btn_Back_img, 1)
 Exit_3_Button =  Button.Button(590, 470, Btn_Back_img, 1)
-
-Exit_4_Button =  Button.Button(195, 640, Red, 1) ########### ***--------
+Exit_4_Button =  Button.Button(195, 640, Red, 1)
 
 Rundom_Button =  Button.Button(50, 470, Btn_rundom_img, 1)
 Rundom_Start_Button =  Button.Button(50, 570, Btn_Start_algo_img, 1)
 
 
-#-------------------
 
 
 def draw_text(text, font, text_col, x, y):
    img = font.render(text, True, text_col)
    screen.blit(img, (x, y))
 
-#game loop
 run = True
 Welcom_Window=True
 Rundom_Window=False
 Algorithm_Window=False
 clock =pygame.time.Clock()
-
 menu_state = "main"
 Algorithm_Name = "None"
 delay=250
@@ -303,14 +289,12 @@ xyt=0
 mB=1
 
 
-while run:
-   
+while run:   
    if(xyt%10==0):
       print("menu state :: ",menu_state)
       print("Algorithm  :: ",Algorithm_Name)
       print("--------------------")
    xyt+=1
-#  print(number_of_red)
    if menu_state == "main":
          if mB:
              Start_effect.play()
@@ -334,7 +318,7 @@ while run:
             menu_state = "SelectFamily" 
             Click_effect.play()           
             pygame.time.delay(delay)
-         if Rundom_Button.draw(screen):      ############
+         if Rundom_Button.draw(screen):      
             runT1=1
             Dice_effect.play()
             randomize()
@@ -373,7 +357,6 @@ while run:
          if DFS_Button.draw(screen):
             Algorithm_Name="DFS"
             Click_effect.play()
-            #menu_state="Algo"
             pygame.time.delay(delay)
          if BFS_Button.draw(screen):
             Algorithm_Name="BFS"
@@ -575,31 +558,4 @@ while run:
    pygame.display.update()
   #   display()
 
-
-'''
-
-    #check if the options menu is open
-    if menu_state == "options":
-        #draw the different options Buttons
-        if video_Button.draw(screen):
-            print("Video Settings")
-        if audio_Button.draw(screen):
-            print("Audio Settings")
-        if keys_Button.draw(screen):
-          print("Change Key Bindings")
-        if back_Button.draw(screen):
-           menu_state = "main"
-
-
-'''
-  #event handler
-   
-
 pygame.quit()
-
-
-'''
-print_list(ansA)
-   duid=sys.getsizeof(ansA)
-   print(duid)
-   '''
