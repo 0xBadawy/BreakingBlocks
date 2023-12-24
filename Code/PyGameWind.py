@@ -135,9 +135,15 @@ def display():
                   screen.blit(White,  ( 520+(j*space)  ,  70 +(i*space)    ) ) 
      # pygame.display.update()
 
+Play_effect = pygame.mixer.Sound("Sound\\Game2.mp3")
+Win_effect = pygame.mixer.Sound("Sound\\success.mp3")
+
 def display_Algo():
+   currarray=[]
    for u in range(len(ansA)):
       screen.blit(Background_game,(0,0))
+      if currarray!=ansA[u]:Play_effect.play()
+      currarray=ansA[u]      
       temp=ansA[u]
       
       space=63
@@ -170,9 +176,10 @@ def display_Algo():
       
       text_Algo=Font_Main.render(str(Algo_Name),False,TEXT_COL)
       screen.blit(text_Algo,(100,128))
-
       pygame.display.update()
       pygame.time.delay(1200)
+   Win_effect.play()
+   pygame.time.delay(2000)
 
 
 
@@ -244,6 +251,10 @@ Btn_A_img = pygame.image.load('Image\Btn_A.png').convert_alpha()
 
 Btn_Back_img = pygame.image.load('Image\Trans_n.png').convert_alpha()
 
+Start_effect = pygame.mixer.Sound("Sound\\Start.wav")
+Click_effect = pygame.mixer.Sound("Sound\\click.wav")
+Dice_effect = pygame.mixer.Sound("Sound\dice.mp3")
+
 Exit_Button = Button.Button(510, 400, Btn_Exit_img, 1)
 Info_Button = Button.Button(510, 335, Btn_Info_img, 1)
 Start_Button = Button.Button(510, 270, Btn_Start_img, 1)
@@ -289,6 +300,8 @@ menu_state = "main"
 Algorithm_Name = "None"
 delay=250
 xyt=0
+mB=1
+
 
 while run:
    
@@ -299,12 +312,17 @@ while run:
    xyt+=1
 #  print(number_of_red)
    if menu_state == "main":
+         if mB:
+             Start_effect.play()
+             mB-=1
          screen.blit(Background_Main,(0,0))
          if Start_Button.draw(screen):
             menu_state = "Rundom"
+            Click_effect.play()
             pygame.time.delay(delay)
          if Info_Button.draw(screen):
             menu_state = "options"
+            Click_effect.play()
             pygame.time.delay(delay)
          if Exit_Button.draw(screen):
             run = False   
@@ -313,10 +331,12 @@ while run:
    if menu_state == "Rundom":
          screen.blit(Background_rundom,(0,0))
          if Rundom_Start_Button.draw(screen):
-            menu_state = "SelectFamily"            
+            menu_state = "SelectFamily" 
+            Click_effect.play()           
             pygame.time.delay(delay)
-         if Rundom_Button.draw(screen):
+         if Rundom_Button.draw(screen):      ############
             runT1=1
+            Dice_effect.play()
             randomize()
             MainArray=copy.deepcopy(start)
             runT1=0
@@ -335,53 +355,62 @@ while run:
          screen.blit(Background_Family,(0,0))
          if uninformed_Button.draw(screen):
             menu_state = "Uninformed"
+            Click_effect.play()
             pygame.time.delay(delay)
          if Exit_Button.draw(screen):
             run = False    
          if informed_Button.draw(screen):
             menu_state = "informed"
+            Click_effect.play()
             pygame.time.delay(delay)
          if Exit_1_Button.draw(screen):
             menu_state = "main"
+            Click_effect.play()
             pygame.time.delay(delay)
 
    elif menu_state == "Uninformed":
          screen.blit(Background_Uninformed,(0,0))
          if DFS_Button.draw(screen):
             Algorithm_Name="DFS"
+            Click_effect.play()
             #menu_state="Algo"
             pygame.time.delay(delay)
          if BFS_Button.draw(screen):
             Algorithm_Name="BFS"
+            Click_effect.play()
              
             pygame.time.delay(delay)
          if ID_Button.draw(screen):
             Algorithm_Name="ID"
-             
+            Click_effect.play()
             pygame.time.delay(delay)
          if UCS_Button.draw(screen):
             Algorithm_Name="UCS"
-             
+            Click_effect.play()
             pygame.time.delay(delay)
          if DLS_Button.draw(screen):
             Algorithm_Name="DLS"
-             
+            Click_effect.play()
             pygame.time.delay(delay)
          if Exit_2_Button.draw(screen):
             menu_state = "SelectFamily"
             Algorithm_Name=""
+            Click_effect.play()
             pygame.time.delay(delay)
 
    elif menu_state == "informed":
       screen.blit(Background_informed,(0,0))
       if Gready_Button.draw(screen):
-         Algorithm_Name="Gready"          
+         Algorithm_Name="Gready"    
+         Click_effect.play()      
          pygame.time.delay(delay)
       if A_Button.draw(screen):          
          Algorithm_Name="A"
+         Click_effect.play()
          pygame.time.delay(delay)
       if Exit_3_Button.draw(screen):
          menu_state = "SelectFamily"
+         Click_effect.play()
          Algorithm_Name=""
          pygame.time.delay(delay)
 
@@ -408,7 +437,8 @@ while run:
          optemal="NO"
          Algo_Name="Depth First Search"
          Ospace=math.trunc(total_state*400/1024)
-         display_Algo()  
+         display_Algo() 
+          
          pygame.time.delay(1500)
          menu_state = "SelectFamily"
          Algorithm_Name="None"
