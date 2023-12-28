@@ -16,19 +16,27 @@ The following search algorithms are implemented:
 - Greedy Best-First Search
 - A* Search
   
-## Features
+## Algorithm analysis and comparison
+[![AI Puzzle Solver](https://github.com/Mohamed-badawy-sayed/BreakingBlocks/blob/9e84c77e837cda3b7a935978626602ce2e8ff738/Image/repo/Picture1.png)]()
 
-![AI Puzzle Solver]( https://github.com/Mohamed-badawy-sayed/BreakingBlocks/blob/78df3727951d59d7056eb396c805c4e1dab6594e/Image/repo/Picture1.png )
+
+## Algorithm analysis and comparison
+[![AI Puzzle Solver](https://github.com/Mohamed-badawy-sayed/BreakingBlocks/blob/9e84c77e837cda3b7a935978626602ce2e8ff738/Image/repo/Picture3.png)]()
 
 
-- Puzzle-solving using different search algorithms.
-- Graphical representation using Pygame.
-- Random puzzle generation.
-- Sound effects for user interaction.
-- ...
 
-## Getting Started
-![AI Puzzle Solver](https://github.com/Mohamed-badawy-sayed/BreakingBlocks/blob/78df3727951d59d7056eb396c805c4e1dab6594e/Image/repo/Picture2.png)
+## Algorithm analysis and comparison
+[![AI Puzzle Solver](https://github.com/Mohamed-badawy-sayed/BreakingBlocks/blob/9e84c77e837cda3b7a935978626602ce2e8ff738/Image/repo/Picture4.png)]()
+
+
+## Algorithm analysis and comparison
+[![AI Puzzle Solver](https://github.com/Mohamed-badawy-sayed/BreakingBlocks/blob/9e84c77e837cda3b7a935978626602ce2e8ff738/Image/repo/Picture5.png)]()
+
+
+## Algorithm analysis and comparison
+[![AI Puzzle Solver](https://github.com/Mohamed-badawy-sayed/BreakingBlocks/blob/9e84c77e837cda3b7a935978626602ce2e8ff738/Image/repo/Picture6.png)]()
+
+
 
 
 This GitHub repository contains Python implementations of various puzzle-solving algorithms for a 10x10 grid puzzle. The puzzle involves filling a grid with colored blocks and finding the optimal sequence of moves to clear the last row. The implemented algorithms include
