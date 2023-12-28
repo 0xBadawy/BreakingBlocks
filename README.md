@@ -49,15 +49,8 @@ The following search algorithms are implemented:
 | Optimal    | YES    | YES   | YES    | NO     | NO     | YES    | YES   |
 
 
-This GitHub repository contains Python implementations of various puzzle-solving algorithms for a 10x10 grid puzzle. The puzzle involves filling a grid with colored blocks and finding the optimal sequence of moves to clear the last row. The implemented algorithms include
-
-1. Clone the repository to your local machine.
-2. Install the required dependencies.
-3. Run the main Python script (`PyGameWind.py`).
-
 ## Agent Specification ( PEAS )
 
-Certainly! Let's convert the provided information into a table format:
 
 | Aspect              | Description                                                                               |
 |---------------------|-------------------------------------------------------------------------------------------|
@@ -69,8 +62,6 @@ Certainly! Let's convert the provided information into a table format:
 | **Sensors**             | - The colors of the squares and their connectivity.                                        |
 |                      | - Look at the last row to see if it is complete or not.                                    |
 
-
-You can copy and paste this Markdown code into your GitHub README or any other Markdown-supported platform. Feel free to adjust the formatting or wording as needed.
 
 
 The project uses the following dependencies:
