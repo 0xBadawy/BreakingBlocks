@@ -9,12 +9,12 @@ The AI Puzzle Solver is a Python application that uses Pygame for graphical repr
 
 The following search algorithms are implemented:
 
-- Depth-First Search (DFS)
-- Breadth-First Search (BFS)
-- Depth-Limited Search (DLS)
-- Uniform Cost Search (UCS)
-- Greedy Best-First Search
-- A* Search
+- **Depth-First Search (DFS)**
+- **Breadth-First Search (BFS)**
+- **Depth-Limited Search (DLS)**
+- **Uniform Cost Search (UCS)**
+- **Greedy Best-First Search**
+- ***A* Search**
   
 ## Algorithm analysis and comparison
 [![AI Puzzle Solver](https://github.com/Mohamed-badawy-sayed/BreakingBlocks/blob/2121745e78d4a0974f6b221df179458fdfd0afbe/Image/repo/Picture7.png)]()
@@ -37,6 +37,17 @@ The following search algorithms are implemented:
 
 
 
+## 
+
+| Name       | Greedy | A*    | BFS    | DFS    | DLS    | IDLS   | UCS    |
+|------------|--------|-------|--------|--------|--------|--------|-------|
+| Total State| 51     | 18635 | 136975 | 217    | 648443 | 501328 | 107538|
+| Path       | 5      | 5     | 5      | 17     | 6      | 5      | 5     |
+| Space (KB) | 19     | 7279  | 53498  | 84     | 253298 | 195831 | 42030 |
+| Time (ms)  | 2      | 1943  | 15604  | 12     | 25444  | 19817  | 12855 |
+| Complete   | YES    | YES   | YES    | YES    | NO     | YES    | YES   |
+| Optimal    | YES    | YES   | YES    | NO     | NO     | YES    | YES   |
+
 
 This GitHub repository contains Python implementations of various puzzle-solving algorithms for a 10x10 grid puzzle. The puzzle involves filling a grid with colored blocks and finding the optimal sequence of moves to clear the last row. The implemented algorithms include
 
@@ -44,25 +55,7 @@ This GitHub repository contains Python implementations of various puzzle-solving
 2. Install the required dependencies.
 3. Run the main Python script (`PyGameWind.py`).
 
-## Usage
-
-- Use the main menu to select options and algorithms.
-- Follow on-screen instructions to interact with the application.
-- ...
-
-## Algorithms
-
-The following search algorithms are implemented:
-
-- Depth-First Search (DFS)
-- Breadth-First Search (BFS)
-- Depth-Limited Search (DLS)
-- Uniform Cost Search (UCS)
-- Greedy Best-First Search
-- A* Search
-- ...
-
-## Dependencies
+## Agent Specification ( PEAS )
 
 Certainly! Let's convert the provided information into a table format:
 
