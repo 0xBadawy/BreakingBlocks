@@ -17,8 +17,7 @@ The following search algorithms are implemented:
 - A* Search
   
 ## Algorithm analysis and comparison
-[![AI Puzzle Solver](https://github.com/Mohamed-badawy-sayed/BreakingBlocks/blob/9e84c77e837cda3b7a935978626602ce2e8ff738/Image/repo/Picture7.png)]()
-
+[![AI Puzzle Solver](https://github.com/Mohamed-badawy-sayed/BreakingBlocks/blob/2121745e78d4a0974f6b221df179458fdfd0afbe/Image/repo/Picture7.png)]()
 
 ## Algorithm analysis and comparison
 [![AI Puzzle Solver](https://github.com/Mohamed-badawy-sayed/BreakingBlocks/blob/9e84c77e837cda3b7a935978626602ce2e8ff738/Image/repo/Picture3.png)]()
@@ -34,7 +33,7 @@ The following search algorithms are implemented:
 
 
 ## Algorithm analysis and comparison
-[![AI Puzzle Solver]([https://github.com/Mohamed-badawy-sayed/BreakingBlocks/blob/9e84c77e837cda3b7a935978626602ce2e8ff738/Image/repo/Picture8.png])]()
+[![AI Puzzle Solver](https://github.com/Mohamed-badawy-sayed/BreakingBlocks/blob/2121745e78d4a0974f6b221df179458fdfd0afbe/Image/repo/Picture8.png)]()
 
 
 
