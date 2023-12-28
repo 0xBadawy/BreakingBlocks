@@ -18,6 +18,9 @@ The following search algorithms are implemented:
   
 ## Features
 
+![AI Puzzle Solver]( https://github.com/Mohamed-badawy-sayed/BreakingBlocks/blob/78df3727951d59d7056eb396c805c4e1dab6594e/Image/repo/Picture1.png )
+
+
 - Puzzle-solving using different search algorithms.
 - Graphical representation using Pygame.
 - Random puzzle generation.
@@ -25,6 +28,7 @@ The following search algorithms are implemented:
 - ...
 
 ## Getting Started
+![AI Puzzle Solver](https://github.com/Mohamed-badawy-sayed/BreakingBlocks/blob/78df3727951d59d7056eb396c805c4e1dab6594e/Image/repo/Picture2.png)
 
 
 This GitHub repository contains Python implementations of various puzzle-solving algorithms for a 10x10 grid puzzle. The puzzle involves filling a grid with colored blocks and finding the optimal sequence of moves to clear the last row. The implemented algorithms include
