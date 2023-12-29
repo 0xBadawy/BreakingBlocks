@@ -1,4 +1,14 @@
-### AI Puzzle Solver
+<div align="center">
+
+<img height="120" src="https://registry.npmmirror.com/@lobehub/assets-logo/1.0.0/files/assets/logo-3d.webp">
+<img height="120" src="https://gw.alipayobjects.com/zos/kitchen/qJ3l3EPsdW/split.svg">
+<img height="120" src="https://registry.npmmirror.com/@lobehub/assets-emoji-anim/1.0.0/files/assets/robot.webp">
+
+<h1>AI Puzzle Solver</h1>
+
+</div>
+
+
 
 This GitHub repository contains Python implementations of various puzzle-solving algorithms for a 10x10 grid puzzle. The puzzle involves filling a grid with colored blocks and finding the optimal sequence of moves to clear the last row. The implemented algorithms include
 ## Introduction
