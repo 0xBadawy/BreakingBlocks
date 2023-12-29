@@ -15,6 +15,17 @@ The following search algorithms are implemented:
 - **Uniform Cost Search (UCS)**
 - **Greedy Best-First Search**
 - ***A* Search**
+
+## screenshot from game
+
+[![AI Puzzle Solver](https://github.com/Mohamed-badawy-sayed/BreakingBlocks/blob/fbaf9eec6c8483f05f178d9e3b04d627e00e2b27/Image/repo/image%20num%20(2).png)]()
+[![AI Puzzle Solver](https://github.com/Mohamed-badawy-sayed/BreakingBlocks/blob/fbaf9eec6c8483f05f178d9e3b04d627e00e2b27/Image/repo/image%20num%20(4).png)]()
+[![AI Puzzle Solver](https://github.com/Mohamed-badawy-sayed/BreakingBlocks/blob/fbaf9eec6c8483f05f178d9e3b04d627e00e2b27/Image/repo/image%20num%20(3).png)]()
+[![AI Puzzle Solver](https://github.com/Mohamed-badawy-sayed/BreakingBlocks/blob/fbaf9eec6c8483f05f178d9e3b04d627e00e2b27/Image/repo/image%20num%20(1).png)]()
+
+
+
+
   
 ## Algorithm analysis and comparison
 [![AI Puzzle Solver](https://github.com/Mohamed-badawy-sayed/BreakingBlocks/blob/2121745e78d4a0974f6b221df179458fdfd0afbe/Image/repo/Picture7.png)]()
