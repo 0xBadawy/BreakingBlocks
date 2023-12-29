@@ -3,7 +3,7 @@
 This GitHub repository contains Python implementations of various puzzle-solving algorithms for a 10x10 grid puzzle. The puzzle involves filling a grid with colored blocks and finding the optimal sequence of moves to clear the last row. The implemented algorithms include
 ## Introduction
 
-The AI Puzzle Solver is a Python application that uses Pygame for graphical representation and implements various search algorithms to solve puzzles. The main focus is on artificial intelligence algorithms such as Depth-First Search, Breadth-First Search, A*, Uniform Cost Search, and others.
+The AI Puzzle Solver is a Python application that uses Pygame for graphical representation and implements various search algorithms to solve puzzles. The main focus is on searching algorithms such as Depth-First Search, Breadth-First Search, A*, Uniform Cost Search, and others.
 
 ## Algorithms
 
