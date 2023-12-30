@@ -85,8 +85,8 @@ The following search algorithms are implemented:
 
 
 ## contributors 
-<a href="https://github.com/Mohamed-badawy-sayed/BreakingBlocks/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Mohamed-badawy-sayed/BreakingBlocks" />
+<a href="https://github.com/Mohamed-badawy-sayed/CMS/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Mohamed-badawy-sayed/CMS" />
 </a>
 
 ## Tools
