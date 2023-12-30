@@ -89,8 +89,7 @@ The following search algorithms are implemented:
   <img src="https://contrib.rocks/image?repo=Mohamed-badawy-sayed/BreakingBlocks" />
 </a>
 
-The project uses the following dependencies:
-
+## Tools
 - Python 3.x
 - Pygame
 
