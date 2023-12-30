@@ -83,10 +83,11 @@ The following search algorithms are implemented:
 | **Sensors**             | - The colors of the squares and their connectivity.                                        |
 |                      | - Look at the last row to see if it is complete or not.                                    |
 
+ 
 
 ## contributors 
-<a href="https://github.com/Mohamed-badawy-sayed/CMS/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=Mohamed-badawy-sayed/CMS" />
+<a href="https://github.com/Mohamed-badawy-sayed/BreakingBlocks/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Mohamed-badawy-sayed/BreakingBlocks" />
 </a>
 
 ## Tools
