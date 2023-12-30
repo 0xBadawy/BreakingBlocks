@@ -84,6 +84,10 @@ The following search algorithms are implemented:
 |                      | - Look at the last row to see if it is complete or not.                                    |
 
 
+## contributors 
+<a href="https://github.com/Mohamed-badawy-sayed/BreakingBlocks/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Mohamed-badawy-sayed/BreakingBlocks" />
+</a>
 
 The project uses the following dependencies:
 
