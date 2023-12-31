@@ -18,7 +18,7 @@ The AI Puzzle Solver is a Python application that uses Pygame for graphical repr
 ## Algorithms
 
 The following search algorithms are implemented:
-
+ 
 - **Depth-First Search (DFS)**
 - **Breadth-First Search (BFS)**
 - **Depth-Limited Search (DLS)**
