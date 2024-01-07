@@ -22,6 +22,7 @@ The following search algorithms are implemented:
 - **Depth-First Search (DFS)**
 - **Breadth-First Search (BFS)**
 - **Depth-Limited Search (DLS)**
+- **Iterative deepening depth-first search (IDLS)**
 - **Uniform Cost Search (UCS)**
 - **Greedy Best-First Search**
 - ***A* Search**
