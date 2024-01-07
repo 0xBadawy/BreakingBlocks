@@ -6,6 +6,7 @@ import pygame
 import sys
 
 
+
 sz=10
 check = [[False] * sz for _ in range(sz)]
 newcur = []
@@ -15,6 +16,7 @@ cc=[1,-1,0,0]
 start = [[''] * sz for _ in range(sz)]
 end = ['.'*sz] * sz
 mp = {}
+
 def print_list(v):
     for i in range(sz):
         for j in range(sz):
@@ -136,7 +138,7 @@ pygame.display.set_caption('8 puzzle')
 clock =pygame.time.Clock()
 #Background = pygame.image.load('Image/background_n.png')
 
-Red = pygame.image.load('Image/red.png').convert_alpha()
+Red = pygame.image.load('Image\red.png').convert_alpha()
 Background = pygame.image.load('Image/background_N.png')
 Yellow = pygame.image.load('Image/Yellow.png').convert_alpha()
 White = pygame.image.load('Image/trans_n.png').convert_alpha()

@@ -12,7 +12,7 @@ cc = [1, -1, 0, 0]
 start = [[0] * sz for _ in range(sz)]
 mp = {}
 
-def heuristic_function(v):
+def heuristic_function( v):
     blue=0
     red=0
     for i in range(sz):
