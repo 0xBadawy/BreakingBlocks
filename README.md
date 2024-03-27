@@ -9,7 +9,7 @@
 <h1>AI Puzzle Solver</h1>
 
 </div>
-
+ 
 
 
 This GitHub repository contains Python implementations of various puzzle-solving algorithms for a 10x10 grid puzzle. The puzzle involves filling a grid with colored blocks and finding the optimal sequence of moves to clear the last row. The implemented algorithms include
